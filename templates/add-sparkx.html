@@ -1,0 +1,45 @@
+{% extends  "layout.html" %}
+{% block title %} Add Sparkx {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="main-section row align-items-center justify-content-center">
+        <div class="col con">
+            <div class="con-title">
+                <h1 class="title">Sparkx Birthday App</h1>
+                {% if addSuc %}
+                    <p>{{ fName }} {{ lName }} has been added successfully.</p>
+                {% else %}
+                    <p>Add a birthday to the list.</p>
+
+                    <form action="{{ url_for('addSparkx')}}" method="post">
+                        <div class="form-group">
+                            <label for="fName">First Name</label>
+                            <input class="form-control" type="text" name="fName" id="" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Last Name</label>
+                            <input class="form-control" type="text" name="lName" id="" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bDate">Date of Birth</label>
+                            <input class="form-control" type="date" name="bDate" id="" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-control">Submit</button>
+                    </form>
+                {% endif %}
+            </div>
+            <div class="con-btns">
+                <div class="row btn-row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">Homepage</a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('bList') }}" class="btn btn-primary">Birthday List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

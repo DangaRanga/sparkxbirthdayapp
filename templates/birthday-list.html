@@ -1,0 +1,68 @@
+{% extends  "layout.html" %}
+
+{% block title %} Birthday List {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="main-section row align-items-center justify-content-center">
+        <div class="col con">
+            <div class="con-title">
+                <h1 class="title">Sparkx Birthday App</h1>
+                <div class="form-group">
+                    <form action=" {{ url_for('bList') }} " method="post">
+                        <div class="form-row justify-content-center">
+                            <div class="col">
+                                <input class="form-control" type="text" name="fName" id="" placeholder="First Name">
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="text" name="lName" id="" placeholder="Last Name">
+                            </div>
+                            <div class="col">
+                                <button class="form-control btn btn-primary" type="submit" >Delete</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                {% if delSuc %}
+                    <p>{{ message }}</p>
+                {% else %}
+                <div class="con-table">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <th>ID#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Birthday</th>
+                            </thead>
+                            <tbody>
+                                {% for spark in sparkx%}
+                                <tr>
+                                    <td>{{ spark.id }}</td>
+                                    <td>{{ spark.fname }}</td>
+                                    <td>{{ spark.lname }}</td>
+                                    <td>{{ spark.month }} {{ spark.day}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="con-btns">
+                <div class="row btn-row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">Homepage</a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('addSparkx') }}" class="btn btn-primary">Add Sparkx</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

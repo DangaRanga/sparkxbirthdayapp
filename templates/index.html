@@ -3,5 +3,32 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %}
-<h1>Hello World</h1>
+<div class="container">
+    <div class="main-section row align-items-center justify-content-center">
+        <div class="col con">
+            <div class="con-title">
+                <h1 class="title">Sparkx Birthday App</h1>
+                <ul>
+                    <h3>Whose birthday is it today?</h3>
+                    {% for spark in sparkx%}
+                    <li>{{spark.fname}} {{ spark.lname }}</li>
+                    {% else %}
+                    <p>No one has a birthday today :(</p>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="con-btns">
+                <div class="row btn-row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('addSparkx') }}" class="btn btn-primary">Add Sparkx</a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-con">
+                        <a href="{{ url_for('bList') }}" class="btn btn-primary">Birthday List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
