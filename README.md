@@ -10,7 +10,6 @@ This project makes use of:
 - PostgreSQL
 - Python
   - Flask
-  - Folium
-  - Beautiful Soup
+  - SQLalchemy
 
 You can check out the project here: https://sparkxbirthdayapp.herokuapp.com/
